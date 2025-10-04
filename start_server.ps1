@@ -1,5 +1,5 @@
 param(
-    [string]$DatabaseUrl = "mysql+pymysql://root:@localhost:3308/wedding_db",
+    [string]$DatabaseUrl = "mysql+pymysql://root:@localhost:3308/expense_management",
     [string]$JwtSecret = "super-secret-key",
     [string]$Hosts = "0.0.0.0",
     [int]$Port = 8000

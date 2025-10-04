@@ -1,48 +1,38 @@
-from pydantic import BaseModel, EmailStr
+from pydantic import BaseModel
 from typing import Optional
-from schemas.device import DeviceCreate
 
-class UserCreate(BaseModel):
-    email: EmailStr
-    password: Optional[str] = None
-    google_uid: Optional[str] = None
-    first_name: Optional[str] = None
-    last_name: Optional[str] = None
-    login_type: Optional[int] = 0
-    device: Optional[DeviceCreate] = None
-
-class UserLogin(BaseModel):
-    email: EmailStr
-    password: Optional[str] = None
-    google_uid: Optional[str] = None
-    device: Optional[DeviceCreate] = None
-
-class UserOut(BaseModel):
-    id: int
-    email: EmailStr
-    first_name: Optional[str] = None
-    last_name: Optional[str] = None
-    photo: Optional[str] = None
-    login_type: Optional[int] = None
-
-    model_config = {"from_attributes": True}
-
-class Token(BaseModel):
-    access_token: str
-    token_type: str = "bearer"
-
-
-class UserOutWithBearer(BaseModel):
-    id: int
-    email: EmailStr
-    first_name: Optional[str] = None
-    last_name: Optional[str] = None
-    login_type: Optional[int] = None
-    bearer: Optional[Token]=None
-    model_config = {"from_attributes": True}
-
-
-class UserUpdate(BaseModel):
+class RegisterRequest(BaseModel):
+    email: str
+    password: str
     first_name: Optional[str]
     last_name: Optional[str]
-    
+    device_id: str
+    device_type: int
+    os_version: Optional[str]
+    device_name: Optional[str]
+    app_version: Optional[str]
+    fcm_token: Optional[str]
+    latitude: Optional[str]
+    longitude: Optional[str]
+
+
+class LoginRequest(BaseModel):
+    email: str
+    password: str
+    device_id: str
+    device_type: int
+    os_version: Optional[str]
+    device_name: Optional[str]
+    app_version: Optional[str]
+    fcm_token: Optional[str]
+    latitude: Optional[str]
+    longitude: Optional[str]
+
+
+class AuthResponse(BaseModel):
+    access_token: str
+    user_id: int
+    email: str
+    first_name: Optional[str]
+    last_name: Optional[str]
+    role: Optional[str]

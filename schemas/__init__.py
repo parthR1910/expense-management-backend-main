@@ -1,9 +1,9 @@
 from .auth import *
-from .wedding import *
-from .task import *
-from .budget import *
-from .vendor import *
-from .guest import *
-from .schedule import *
-from .collaborator import *
-from .message import *
+# from .wedding import *
+# from .task import *
+# from .budget import *
+# from .vendor import *
+# from .guest import *
+# from .schedule import *
+# from .collaborator import *
+# from .message import *
