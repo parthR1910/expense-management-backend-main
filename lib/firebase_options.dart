@@ -4,12 +4,14 @@ import 'package:flutter/foundation.dart' show kIsWeb;
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     return FirebaseOptions(
-      apiKey: "AIzaSyDMA-2P7nFF25qsH3IlwZnvDKocpvpAVZg",
-      authDomain: "expensemangementapp.firebaseapp.com",
-      projectId: "expensemangementapp",
-      storageBucket: "expensemangementapp.firebasestorage.app",
-      messagingSenderId: "932920776979",
-      appId: "1:932920776979:web:26ca8cebc08ce498af22e6",
-    );
+        apiKey: "AIzaSyBjTJ3Dwi4iFEA70sfVX9gH3CCPzytgbrA",
+        authDomain: "ai-powered-notes-scanner.firebaseapp.com",
+        databaseURL:
+            "https://ai-powered-notes-scanner-default-rtdb.firebaseio.com",
+        projectId: "ai-powered-notes-scanner",
+        storageBucket: "ai-powered-notes-scanner.firebasestorage.app",
+        messagingSenderId: "304723757911",
+        appId: "1:304723757911:web:acd2e3545fb3a98cfccc12",
+        measurementId: "G-XY30BL94NZ");
   }
 }
