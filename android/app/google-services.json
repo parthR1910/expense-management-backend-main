@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "304723757911",
+    "firebase_url": "https://ai-powered-notes-scanner-default-rtdb.firebaseio.com",
+    "project_id": "ai-powered-notes-scanner",
+    "storage_bucket": "ai-powered-notes-scanner.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:304723757911:android:2e01c6f5b636397efccc12",
+        "android_client_info": {
+          "package_name": "com.example.ai_powered_notes_scanner"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBaJ9nP_Rqfmee91y_gYkq8PBpdEuJq_sQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:304723757911:android:4fc14c16a5a12cbdfccc12",
+        "android_client_info": {
+          "package_name": "com.example.expensemanagementapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBaJ9nP_Rqfmee91y_gYkq8PBpdEuJq_sQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

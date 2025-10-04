@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>Xyz</string>
+	<string>Expense Management</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -13,7 +13,7 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>xyz</string>
+	<string>Expense Management</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
@@ -45,5 +45,12 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+	<!-- Camera & Photos permissions for receipt capture/picking -->
+	<key>NSCameraUsageDescription</key>
+	<string>Need camera access to capture receipt photos for expenses.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Need photo library access to select receipt images for expenses.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Need permission to save processed receipt images.</string>
 </dict>
 </plist>

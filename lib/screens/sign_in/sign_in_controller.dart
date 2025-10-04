@@ -15,39 +15,56 @@ class SignInController {
 
   /// Handles Firebase sign-in using email and password
   Future<void> handleSignIn(WidgetRef ref, BuildContext context) async {
-    final state = ref.watch(signInProvider);
-    final email = state.email;
-    final password = state.password;
+  final state = ref.watch(signInProvider);
+  final email = state.email;
+  final password = state.password;
 
-    emailController.text = email;
-    passwordController.text = password;
+  emailController.text = email;
+  passwordController.text = password;
 
-    if (email.isEmpty || password.isEmpty) {
-      ToastUtils.showToast("Email and password cannot be empty", backgroundColor: Colors.red);
+  if (email.isEmpty || password.isEmpty) {
+    ToastUtils.showToast(
+      "Email and password cannot be empty",
+      backgroundColor: Colors.red,
+    );
+    return;
+  }
+
+  try {
+    final credential = await SignInRepo.firebaseSignIn(email, password);
+
+    if (credential.user == null) {
+      ToastUtils.showToast("User not found", backgroundColor: Colors.red);
       return;
     }
 
-    try {
-      final credential = await SignInRepo.firebaseSignIn(email, password);
+    // Show success toast first
+    ToastUtils.showToast("Login successful", backgroundColor: Colors.green);
 
-      if (credential.user == null) {
-        ToastUtils.showToast("User not found", backgroundColor: Colors.red);
-        return;
-      }
+    // Optional: wait a short time so toast is visible
+    await Future.delayed(const Duration(milliseconds: 500));
 
-      // Login successful → navigate to Admin Dashboard
-      // context.go(AppRoutesNames.home);
-      ToastUtils.showToast("Login successful", backgroundColor: Colors.green);
-    } on FirebaseAuthException catch (e) {
-      if (e.code == 'user-not-found') {
-        ToastUtils.showToast("User not found", backgroundColor: Colors.red);
-      } else if (e.code == 'wrong-password') {
-        ToastUtils.showToast("Incorrect password", backgroundColor: Colors.red);
-      } else {
-        ToastUtils.showToast(e.message ?? "Authentication error", backgroundColor: Colors.red);
-      }
-    } catch (e) {
-      ToastUtils.showToast("An error occurred: ${e.toString()}", backgroundColor: Colors.red);
+    // Navigate to Home / Dashboard
+    // Use your route here
+    context.go(AppRoutesNames.home);
+
+  } on FirebaseAuthException catch (e) {
+    if (e.code == 'user-not-found') {
+      ToastUtils.showToast("User not found", backgroundColor: Colors.red);
+    } else if (e.code == 'wrong-password') {
+      ToastUtils.showToast("Incorrect password", backgroundColor: Colors.red);
+    } else {
+      ToastUtils.showToast(
+        e.message ?? "Authentication error",
+        backgroundColor: Colors.red,
+      );
     }
+  } catch (e) {
+    ToastUtils.showToast(
+      "An error occurred: ${e.toString()}",
+      backgroundColor: Colors.red,
+    );
   }
+}
+
 }
